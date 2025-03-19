@@ -1,0 +1,21 @@
+<div><h2 id="magnum">Magnum Products</h2></div>
+
+<div class = "product-catalog">
+    <div *ngFor="let product of products" class="product-card" >
+        <div class="imgs">
+            <button class="nav-button left" (click)="changeImage(product, -1)">‹</button>
+            <img [src]="product.images[product.indexOfImage]" alt="Product Image" class="product-image">
+            <button class="nav-button right" (click)="changeImage(product, 1)">›</button>
+          </div>
+        <h3 class="product-title">
+            <a [href]="product.sourceLink" target="_blank">{{ product.name }}</a></h3>
+        <p class="product-description">{{product.description}}</p>
+        <div class="product-info">
+            <span class="product-rating">Rating: {{ getStars(product.rating) }}</span>
+            <span class="product-price">{{product.price}}₸</span>
+          </div>
+          <div class="product-actions">
+            <button class="btn share-btn" (click)="share(product.sourceLink)">Share</button>
+          </div>
+      </div>
+</div>
