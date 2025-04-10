@@ -8,4 +8,5 @@ urlpatterns=[
     path("vacancies/<int:vacancy_id>",views.vacancy_by_id),
     path("companies/<int:company_id>/vacancies",views.vacancies_by_company),
     path("vacancies/top-ten",views.sort_vacancy_decreasing),
+    
 ]

@@ -1,6 +1,8 @@
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404, render
 from django.http import JsonResponse
-from .models import Company,Vacancy
+from .models import Company,Vacancy,Jobs
+from django.views.decorators.http import require_POST
 
 def company_list(request):
     companies=Company.objects.all()
@@ -51,3 +53,4 @@ def sort_vacancy_decreasing(request):
     vacancies=Vacancy.objects.order_by('-salary')[:10]
     data={'vacancies':list(vacancies.values())}
     return JsonResponse(data)
+
